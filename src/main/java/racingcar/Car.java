@@ -3,11 +3,11 @@ package racingcar;
 import org.apache.commons.lang3.StringUtils;
 
 public class Car {
-	private String name;
+	private final CarName carName;
 	private int mileage = 0;
 
 	public Car(String name) {
-		this.name = name;
+		this.carName = new CarName(name);
 	}
 
 	public void start(final int fuel) {
@@ -22,6 +22,6 @@ public class Car {
 
 	@Override
 	public String toString() {
-		return this.name + " : " + StringUtils.repeat('-', this.mileage);
+		return this.carName + " : " + StringUtils.repeat('-', this.mileage);
 	}
 }
