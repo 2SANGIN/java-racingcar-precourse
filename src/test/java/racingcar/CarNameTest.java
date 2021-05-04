@@ -1,5 +1,6 @@
 package racingcar;
 
+import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.params.ParameterizedTest;
@@ -15,6 +16,6 @@ class CarNameTest {
 	@ParameterizedTest
 	@ValueSource(strings = {"abcdef", "abcdefg"})
 	void testLongNames(String testName) {
-		assertThrows(IllegalArgumentException.class, () -> new CarName(testName));
+		assertThatIllegalArgumentException().isThrownBy(() -> new CarName(testName));
 	}
 }
