@@ -23,7 +23,7 @@ class CarRacingHostTest {
 		audi.start(5);
 		audi.start(5);
 
-		assertThat(CarRacingHost.award(Arrays.asList(kia, bmw, audi))).isEqualTo(Collections.singletonList(audi));
+		assertThat(CarRacingHost.getWinners(Arrays.asList(kia, bmw, audi))).isEqualTo(Collections.singletonList(audi));
 	}
 
 	@Test
@@ -41,7 +41,7 @@ class CarRacingHostTest {
 		k8.start(3);
 		k8.start(5);
 
-		assertThat(CarRacingHost.award(Arrays.asList(k3, k5, k8))).isEqualTo(Arrays.asList(k3, k5, k8));
+		assertThat(CarRacingHost.getWinners(Arrays.asList(k3, k5, k8))).isEqualTo(Arrays.asList(k3, k5, k8));
 	}
 
 	@Test
@@ -51,12 +51,12 @@ class CarRacingHostTest {
 		kia.start(3);
 		kia.start(9);
 
-		assertThat(CarRacingHost.award(Collections.singletonList(kia))).isEqualTo(Collections.singletonList(kia));
+		assertThat(CarRacingHost.getWinners(Collections.singletonList(kia))).isEqualTo(Collections.singletonList(kia));
 	}
 
 	@Test
 	void testNoCars() {
-		assertThatIllegalArgumentException().isThrownBy(() -> CarRacingHost.award(Collections.emptyList()))
+		assertThatIllegalArgumentException().isThrownBy(() -> CarRacingHost.getWinners(Collections.emptyList()))
 			.withMessage("우승자가 없습니다.");
 	}
 }

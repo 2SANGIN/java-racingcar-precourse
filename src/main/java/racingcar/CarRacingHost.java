@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class CarRacingHost {
-	public static List<Car> award(List<Car> cars) {
+	public static List<Car> getWinners(List<Car> cars) {
 		Map<Integer, List<Car>> rankings = cars.stream()
 			.collect(Collectors.groupingBy(Car::getMileage));
 		int maxMileage = rankings.keySet()
