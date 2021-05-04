@@ -3,10 +3,10 @@ package racingcar;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class LapStatus {
+public class Record {
 	List<String> lapStatuses;
 
-	public LapStatus(List<Car> cars) {
+	public Record(List<Car> cars) {
 		this.lapStatuses = cars.stream().map(Car::toString).collect(Collectors.toList());
 	}
 

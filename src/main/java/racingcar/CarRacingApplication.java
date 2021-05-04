@@ -2,7 +2,7 @@ package racingcar;
 
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
+import java.util.StringJoiner;
 
 public class CarRacingApplication {
 	public static void main(String[] args) {
@@ -13,14 +13,18 @@ public class CarRacingApplication {
 		int repeat = sc.nextInt();
 
 		CarRacing carRacing = new CarRacing(names);
-		List<LapStatus> lapStatuses = carRacing.startRacing(repeat);
+		RacingResult result = carRacing.startRacing(repeat);
 		System.out.println("\n실행 결과");
-		lapStatuses.forEach(System.out::println);
+		System.out.print(result);
+		System.out.println(getWinnerText(carRacing) + "가 최종 우승했습니다.");
+	}
 
-		String winners = CarRacingHost.getWinners(carRacing.getCars())
-			.stream()
-			.map(Car::getName)
-			.collect(Collectors.joining(", "));
-		System.out.println(winners + "가 최종 우승했습니다.");
+	private static String getWinnerText(CarRacing carRacing) {
+		List<Car> winners = CarRacingHost.getWinners(carRacing.getCars());
+		StringJoiner winnersName = new StringJoiner(", ");
+		for (Car car : winners) {
+			winnersName.add(car.getName());
+		}
+		return winnersName.toString();
 	}
 }

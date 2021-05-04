@@ -32,18 +32,17 @@ public class CarRacing {
 			.collect(collectingAndThen(toList(), Collections::unmodifiableList));
 	}
 
-	public List<LapStatus> startRacing(int repeat) {
-		List<LapStatus> status = new ArrayList<>();
+	public RacingResult startRacing(int repeat) {
+		List<Record> records = new ArrayList<>();
 		for (int i = 0; i < repeat; i++) {
-			LapStatus lapStatus = startLap();
-			status.add(lapStatus);
+			records.add(getRecord());
 		}
-		return Collections.unmodifiableList(status);
+		return new RacingResult(records);
 	}
 
-	private LapStatus startLap() {
+	private Record getRecord() {
 		cars.forEach(car -> car.start(gasStation.getAsInt()));
-		return new LapStatus(this.cars);
+		return new Record(this.cars);
 	}
 
 	public List<Car> getCars() {
