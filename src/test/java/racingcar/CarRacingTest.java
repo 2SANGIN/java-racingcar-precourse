@@ -16,7 +16,7 @@ class CarRacingTest {
 		CarRacing carRacing = new CarRacing(names, new CyclicSupplier(new int[] {4, 3, 5, 6, 7, 2}));
 
 		// when
-		carRacing.play(repeat);
+		carRacing.startRacing(repeat);
 		List<Car> cars = carRacing.getCars();
 		assertThat(cars).hasSize(3).map(Car::getMileage).isEqualTo(Arrays.asList(3, 1, 2));
 	}
