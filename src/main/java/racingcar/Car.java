@@ -24,4 +24,8 @@ public class Car {
 	public String toString() {
 		return this.carName + " : " + StringUtils.repeat('-', this.mileage);
 	}
+
+	public String getName() {
+		return this.carName.toString();
+	}
 }
