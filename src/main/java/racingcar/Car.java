@@ -11,7 +11,7 @@ public class Car {
 	}
 
 	public void start(final int fuel) {
-		if (fuel >= 4) {
+		if (fuel >= CarRacingApplication.MOVING_THRESHOLD) {
 			this.mileage++;
 		}
 	}

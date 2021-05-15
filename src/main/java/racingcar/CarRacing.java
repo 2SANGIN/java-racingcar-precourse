@@ -17,7 +17,7 @@ public class CarRacing {
 
 	public CarRacing(String names) {
 		this.cars = mapCars(names);
-		this.gasStation = () -> RandomUtils.nextInt(0, 10);
+		this.gasStation = () -> RandomUtils.nextInt(0, CarRacingApplication.RANDOM_END_RANGE);
 	}
 
 	CarRacing(String names, IntSupplier gasStation) {

@@ -5,6 +5,9 @@ import java.util.Scanner;
 import java.util.StringJoiner;
 
 public class CarRacingApplication {
+	public static final int MOVING_THRESHOLD = 4;
+	public static final int RANDOM_END_RANGE = 10;
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");

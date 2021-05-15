@@ -3,7 +3,7 @@ package racingcar;
 import java.util.List;
 
 public class RacingResult {
-	private List<Record> records;
+	private final List<Record> records;
 
 	public RacingResult(List<Record> records) {
 		this.records = records;
